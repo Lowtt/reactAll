@@ -4,13 +4,14 @@
  * @Autor: Lowt
  * @Date: 2020-07-13 10:36:51
  * @LastEditors: Lowt
- * @LastEditTime: 2020-07-13 13:46:55
+ * @LastEditTime: 2020-07-13 14:46:03
  */ 
 
  import React,{Component} from 'react'
  import {Input,Button,List,message} from 'antd'
  import store from '../store'
 
+ import {INPUT_CHANGE,ITEM_ADD,ITEM_DELETE} from '../store/actionTypes'
 
  class ReduxTest extends Component {
      constructor(props) {
@@ -44,7 +45,7 @@
     }
     inputChange(e){
         const action = {
-            type:'inputChange',
+            type:INPUT_CHANGE,
             value:e.target.value
         }
 
@@ -54,7 +55,7 @@
     itemAdd(){
         if(store.getState().inputValue){
             const action = {
-                type:'itemAdd'
+                type:ITEM_ADD
             }
             store.dispatch(action)
         }else{
@@ -65,7 +66,7 @@
 
     itemDelete(index){
         const action = {
-            type:'itemDelete',
+            type:ITEM_DELETE,
             index
         }
         store.dispatch(action)
