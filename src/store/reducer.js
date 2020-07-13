@@ -3,13 +3,14 @@
  * @Version: 0.1
  * @Autor: Lowt
  * @Date: 2020-07-13 10:28:05
- * @LastEditors: Lowt
- * @LastEditTime: 2020-07-13 14:46:56
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-07-13 21:46:37
  */
 import {
     INPUT_CHANGE,
     ITEM_ADD,
-    ITEM_DELETE
+    ITEM_DELETE,
+    GET_LIST_DATA
 } from './actionTypes'
 const defaultStore = {
     inputValue: 'Write Something',
@@ -34,6 +35,10 @@ export default (state = defaultStore, action) => {
     }
     if (action.type === ITEM_DELETE) {
         newState.list.splice(action.index, 1)
+        return newState
+    }
+    if (action.type === GET_LIST_DATA) {
+        newState.list = action.data.list
         return newState
     }
     return state
