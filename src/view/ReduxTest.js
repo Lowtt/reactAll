@@ -3,8 +3,8 @@
  * @Version: 0.1
  * @Autor: Lowt
  * @Date: 2020-07-13 10:36:51
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-07-13 21:46:54
+ * @LastEditors: Lowt
+ * @LastEditTime: 2020-07-22 15:47:25
  */
 
 import React, { Component } from 'react'
@@ -15,7 +15,7 @@ import axios from 'axios'
 
 //  import {INPUT_CHANGE,ITEM_ADD,ITEM_DELETE} from '../store/actionTypes'
 
-import { inputChangeAction, itemAddAction, itemDeleteAction,getItemList } from '../store/actionCreators'
+import {getData, inputChangeAction, itemAddAction, itemDeleteAction,getItemList } from '../store/actionCreators'
 
 class ReduxTest extends Component {
   constructor(props) {
@@ -83,10 +83,12 @@ class ReduxTest extends Component {
   }
 
   getListData() {
-    axios.get('https://www.easy-mock.com/mock/5cfcce489dc7c36bd6da2c99/xiaojiejie/getList').then(res => {
-      const action = getItemList(res.data.data)
-      store.dispatch(action)
-    })
+    const action = getData()
+    store.dispatch(action)
+    // axios.get('https://www.easy-mock.com/mock/5cfcce489dc7c36bd6da2c99/xiaojiejie/getList').then(res => {
+    //   const action = getItemList(res.data.data)
+      
+    // })
   }
 
   //store变化时重新渲染页面数据
